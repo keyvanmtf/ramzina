@@ -13,10 +13,9 @@ class Ad extends StatefulWidget {
 }
 
 class _AdState extends State<Ad> {
-  // final String zoneId = '664a4bc7cdfaf25df9c6ce5d';
-  // final String zoneId = '664a4bc7cdfaf25df9c6ce5d';
-  final String APP_ID = '59c36ce3-7125-40a7-bd34-144e6906c796';
-  final String PLACEMENT_ID = 'a355be22-970a-46b8-bc52-f0a59c4ded05';
+  
+  final String APP_ID = 'Your api key';
+  final String PLACEMENT_ID = 'your api key ';
   @override
   void initState() {
     super.initState();
