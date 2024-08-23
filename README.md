@@ -47,5 +47,5 @@ See also the list of [contributors](https://github.com/keyvanmtf/ramzina/contrib
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## ScreenShots
-<img src="https://github.com/keyvanmtf/ramzina/blob/e428d7c713499b50ed99bcee7344a7f7a02dd772/Screenshot_2024-08-24-00-26-07-268_com.example.ramz.jpg" width="150" height="280">
+<img src="https://github.com/keyvanmtf/ramzina/blob/e428d7c713499b50ed99bcee7344a7f7a02dd772/Screenshot_2024-08-24-00-26-07-268_com.example.ramz.jpg" width="250" height="400">
 
