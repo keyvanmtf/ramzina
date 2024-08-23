@@ -48,4 +48,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## ScreenShots
 <img src="https://github.com/keyvanmtf/ramzina/blob/e428d7c713499b50ed99bcee7344a7f7a02dd772/Screenshot_2024-08-24-00-26-07-268_com.example.ramz.jpg" width="350" height="600">
+<img src="https://github.com/keyvanmtf/ramzina/blob/d4419a1bf6f37e82b13a361b493cfddb7c18aaac/Screenshot_2024-08-24-00-26-25-866_com.example.ramz.jpg" width="350" height="600">
+
 
