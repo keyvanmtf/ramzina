@@ -1,3 +1,50 @@
-# ramz
+# Ramzina - Cryptocurrency Price Tracker
 
-A new Flutter project.
+Ramzina is a Flutter-based mobile application that provides real-time cryptocurrency price tracking and information.
+
+## Features
+
+- Real-time price updates for various cryptocurrencies
+- Detailed information about each cryptocurrency
+- User-friendly interface for easy navigation
+- Customizable watchlist for tracking favorite cryptocurrencies
+- Historical price data and charts
+
+## Getting Started
+
+These instructions will help you set up the project on your local machine for development and testing purposes.
+
+### Prerequisites
+
+- Flutter (latest version)
+- Dart SDK
+- Android Studio or VS Code with Flutter extensions
+
+### Installation
+
+1. Clone the repository:git clone https://github.com/keyvanmtf/ramzina.git
+2.  Navigate to the project directory:cd ramzina
+3.  Install dependencies:flutter pub get
+4.  Run the app:flutter run
+## Built With
+
+- [Flutter](https://flutter.dev/) - The UI framework used
+-  - For state management
+- [http](https://pub.dev/packages/http) - For making API calls
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Authors
+
+- **Keyvan  Sedri** - *Initial work* - [keyvanmtf](https://github.com/keyvanmtf)
+
+See also the list of [contributors](https://github.com/keyvanmtf/ramzina/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## ScreenShots
+
