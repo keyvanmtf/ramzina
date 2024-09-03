@@ -1,6 +1,5 @@
 import 'dart:async'; // برای استفاده از Timer
 
-import 'package:codyad/Model/crypto_model.dart';
 import 'package:codyad/controller/crypto_controller.dart';
 import 'package:codyad/widget/crypto_list.dart';
 import 'package:codyad/widget/update_btn.dart';
@@ -19,7 +18,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   var cryptoList = [];
-  late Future<List<Crypto>> futureCryptos;
+  // late Future<List<Crypto>> futureCryptos;
   String searchQuery = '';
   Timer? _timer; // متغیر تایمر
 
@@ -77,11 +76,9 @@ class _HomeState extends State<Home> {
               const SizedBox(height: 20),
               TextField(
                 onChanged: (value) {
-                  setState(() {
-                    searchQuery = value;
-                  });
+                  cryptoController.searchCrypto(value);
                 },
-                style: const TextStyle(color: Color.fromARGB(255, 5, 5, 5)),
+                style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   hintText: "جستجوی ارز",
                   hintStyle: const TextStyle(

@@ -6,9 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CryptoList extends StatelessWidget {
-  // final List<Crypto> cryptos;
-  // final String searchQuery;
-
   const CryptoList({super.key});
 
   String getCryptoNameInFarsi(String name) {
@@ -27,20 +24,15 @@ class CryptoList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CryptoController cryptoController = Get.find();
-    // final filteredCryptos = cryptos.where((crypto) {
-    //   final nameFa =
-    //   .(crypto.name);
-    //   final query = searchQuery.toLowerCase();
-    //   return crypto.name.toLowerCase().contains(query) ||
-    //       nameFa.contains(query);
-    // }).toList();
+    final CryptoController cryptoController = Get.find<CryptoController>();
 
     return Obx(() {
       return ListView.separated(
-        itemCount: cryptoController.cryptos.length,
+        itemCount: cryptoController
+            .filteredCryptos.length, // استفاده از filteredCryptos
         itemBuilder: (context, index) {
-          final crypto = cryptoController.cryptos[index];
+          final crypto = cryptoController
+              .filteredCryptos[index]; // استفاده از filteredCryptos
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: Container(

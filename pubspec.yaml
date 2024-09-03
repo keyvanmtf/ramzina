@@ -38,6 +38,7 @@ dependencies:
   adivery: ^4.2.0
   flutter_launcher_icons: ^0.13.1
   get: ^4.6.6
+  dio: ^5.7.0
 
 dev_dependencies:
   flutter_test:
