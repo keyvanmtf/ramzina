@@ -29,7 +29,7 @@ These instructions will help you set up the project on your local machine for de
 ## Built With
 
 - [Flutter](https://flutter.dev/) - The UI framework used
--  - For state management
+- Getx - For state management
 - [http](https://pub.dev/packages/http) - For making API calls
 
 ## Contributing
