@@ -4,17 +4,20 @@ import 'package:flutter/material.dart';
 class UpdateButton extends StatelessWidget {
   final VoidCallback onUpdate;
 
-  const UpdateButton({required this.onUpdate, Key? key});
+  const UpdateButton({
+    super.key,
+    required this.onUpdate,
+  });
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onUpdate,
-      child: Text(
+      style:
+          ElevatedButton.styleFrom(backgroundColor: appColors.priceCardColor),
+      child: const Text(
         "به روزرسانی",
         style: TextStyle(color: Colors.white),
       ),
-      style:
-          ElevatedButton.styleFrom(backgroundColor: appColors.priceCardColor),
     );
   }
 }

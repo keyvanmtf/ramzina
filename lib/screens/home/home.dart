@@ -1,16 +1,17 @@
 import 'dart:async'; // برای استفاده از Timer
+
+import 'package:codyad/Model/crypto_model.dart';
+import 'package:codyad/controller/crypto_controller.dart';
 import 'package:codyad/widget/crypto_list.dart';
 import 'package:codyad/widget/update_btn.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-import 'package:codyad/Model/crypto_model.dart';
-import 'package:codyad/services/crypto_service.dart';
-import 'package:flutter/cupertino.dart';
-import '../theme/colors.dart';
+import '../../theme/colors.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
@@ -25,7 +26,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    fetchCryptos();
+    // fetchCryptos();
   }
 
   @override
@@ -34,11 +35,11 @@ class _HomeState extends State<Home> {
     super.dispose();
   }
 
-  void fetchCryptos() {
-    setState(() {
-      futureCryptos = CryptoService.fetchCryptos();
-    });
-  }
+  // void fetchCryptos() {
+  //   setState(() {
+  //     futureCryptos = CryptoService.fetchCryptos();
+  //   });
+  // }
 
   // void _startAutoRefresh() {
   //   _timer = Timer.periodic(Duration(seconds: 10), (timer) {
@@ -48,8 +49,9 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    final currentwidth = MediaQuery.of(context).size.width;
+    // final currentwidth = MediaQuery.of(context).size.width;
     final currentheight = MediaQuery.of(context).size.height;
+    final CryptoController cryptoController = Get.put(CryptoController());
 
     return Scaffold(
       backgroundColor: appColors.bgColor,
@@ -82,8 +84,8 @@ class _HomeState extends State<Home> {
                 style: const TextStyle(color: Color.fromARGB(255, 5, 5, 5)),
                 decoration: InputDecoration(
                   hintText: "جستجوی ارز",
-                  hintStyle:
-                      TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                  hintStyle: const TextStyle(
+                      color: Color.fromARGB(255, 255, 255, 255)),
 
                   fillColor: appColors.priceCardColor,
                   filled: true, // Explicit color for testing
@@ -91,9 +93,9 @@ class _HomeState extends State<Home> {
                     borderRadius: BorderRadius.circular(30.0),
                     borderSide: BorderSide.none,
                   ),
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
-                  prefixIcon: Icon(Icons.search, color: Colors.white),
+                  contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 15.0),
+                  prefixIcon: const Icon(Icons.search, color: Colors.white),
                 ),
               ),
               const SizedBox(height: 20),
@@ -131,34 +133,23 @@ class _HomeState extends State<Home> {
               SizedBox(
                 width: double.infinity,
                 height: currentheight * 0.45,
-                child: FutureBuilder<List<Crypto>>(
-                  future: futureCryptos,
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(child: CircularProgressIndicator());
-                    } else if (snapshot.hasError) {
-                      return Center(
-                          child:
-                              Text('Failed to load data: ${snapshot.error}'));
-                    } else if (snapshot.hasData) {
-                      final cryptos = snapshot.data!;
-                      return CryptoList(
-                        cryptos: cryptos,
-                        searchQuery: searchQuery,
-                      );
-                    } else {
-                      return const Center(child: Text('No data available'));
-                    }
-                  },
-                ),
+                child: Obx(() {
+                  if (cryptoController.isLoading.value) {
+                    return const Center(child: CircularProgressIndicator());
+                  } else if (cryptoController.cryptos.isEmpty) {
+                    return const Center(child: Text('No data available'));
+                  } else {
+                    return const CryptoList(); // اینجا لیست ارزها را نمایش می‌دهیم
+                  }
+                }),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Container(
+              SizedBox(
                 height: 45,
                 child: UpdateButton(
-                  onUpdate: fetchCryptos,
+                  onUpdate: cryptoController.fetchCryptos,
                 ),
               ),
             ],

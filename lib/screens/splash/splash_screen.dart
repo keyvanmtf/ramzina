@@ -1,7 +1,8 @@
 import 'dart:async';
 
-import 'package:codyad/screens/home.dart';
+import 'package:codyad/common/page_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,10 +15,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(
-        const Duration(seconds: 3),
-        () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => const Home())));
+    Future.delayed(const Duration(seconds: 3)).then((value) {
+      Get.offNamed(PageRoutes.HOME);
+    });
   }
 
   @override
