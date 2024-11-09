@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-
 import 'package:adivery/adivery.dart';
 import 'package:adivery/adivery_ads.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Ad extends StatefulWidget {
   const Ad({
@@ -13,7 +13,6 @@ class Ad extends StatefulWidget {
 }
 
 class _AdState extends State<Ad> {
-  
   final String APP_ID = 'Your api key';
   final String PLACEMENT_ID = 'your api key ';
   @override
@@ -25,8 +24,8 @@ class _AdState extends State<Ad> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        width: 320,
-        height: 50,
+        width: 320.w,
+        height: 50.h,
 
         // child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
         //   Text(

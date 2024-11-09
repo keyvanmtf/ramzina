@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:codyad/Model/crypto_model.dart';
+import 'package:codyad/const/api.dart';
 import 'package:codyad/utils/crypto_names_fa.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -18,11 +19,10 @@ class CryptoController extends GetxController {
   }
 
   Future<List<Crypto>> fetchCryptos() async {
-   
     try {
       isLoading(true);
       final response = await http.get(Uri.parse(
-          'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&x_cg_demo_api_key=api-key'));
+          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&x_cg_demo_api_key=${ApiKey.api_key}"));
 
       if (response.statusCode == 200) {
         var jsonData = json.decode(response.body);
@@ -33,6 +33,7 @@ class CryptoController extends GetxController {
         return cryptoList; // لیست رمز ارزها را برمی‌گردانیم
       } else {
         Get.snackbar('Error', 'Failed to fetch data');
+
         return []; // در صورت خطا، یک لیست خالی برمی‌گردانیم
       }
     } finally {

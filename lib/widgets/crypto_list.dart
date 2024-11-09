@@ -1,8 +1,9 @@
 import 'package:codyad/controller/crypto_controller.dart';
 import 'package:codyad/theme/colors.dart';
 import 'package:codyad/utils/crypto_names_fa.dart';
-import 'package:codyad/widget/ad.dart';
+import 'package:codyad/widgets/ad.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class CryptoList extends StatelessWidget {
@@ -34,22 +35,22 @@ class CryptoList extends StatelessWidget {
           final crypto = cryptoController
               .filteredCryptos[index]; // استفاده از filteredCryptos
           return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
+            padding: EdgeInsets.symmetric(vertical: 8.w),
             child: Container(
               decoration: BoxDecoration(
                 color: appColors.priceCardColor,
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10).w,
               ),
               child: Row(children: [
                 Image.network(
                   crypto.image,
-                  width: 50,
-                  height: 50,
+                  width: 50.w,
+                  height: 50.h,
                   errorBuilder: (context, error, stackTrace) {
                     return const Icon(Icons.error);
                   },
                 ),
-                const SizedBox(width: 16),
+                SizedBox(width: 16.w),
                 Expanded(
                   child: Text(
                     getCryptoNameInFarsi(crypto.name),
@@ -59,7 +60,7 @@ class CryptoList extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(width: 16),
+                SizedBox(width: 16.w),
                 Expanded(
                   child: Text(
                     convertToPersianNumber(

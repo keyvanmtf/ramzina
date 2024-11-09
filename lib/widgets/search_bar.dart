@@ -1,5 +1,6 @@
 import 'package:codyad/theme/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchBar extends StatelessWidget {
   final ValueChanged<String> onChanged;
@@ -18,11 +19,11 @@ class SearchBar extends StatelessWidget {
         fillColor: appColors.bgColor,
         filled: true, // Explicit color for testing
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30.0),
+          borderRadius: BorderRadius.circular(30.0).w,
           borderSide: BorderSide.none,
         ),
         contentPadding:
-            const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+            EdgeInsets.symmetric(horizontal: 20.0.w, vertical: 15.0.w),
         prefixIcon: const Icon(Icons.search, color: Colors.white),
       ),
     );

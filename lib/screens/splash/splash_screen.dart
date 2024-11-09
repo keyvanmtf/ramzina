@@ -1,7 +1,8 @@
 import 'dart:async';
 
-import 'package:codyad/common/page_routes.dart';
+import 'package:codyad/routes/page_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -33,14 +34,14 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             Image.asset(
               'assets/images/ramzina.png',
-              width: 200,
-              height: 250,
+              width: 200.w,
+              height: 250.h,
             ),
-            const Text(
+            Text(
               "رمزینا",
               style: TextStyle(
                   color: Colors.white,
-                  fontSize: 45,
+                  fontSize: 45.sp,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'iransans'),
             ),
